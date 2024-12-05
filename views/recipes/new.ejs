@@ -1,0 +1,28 @@
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Add a new Listing</h1>
+
+  <form method="POST" action="/recipes">
+    <label for="recipename">Recipe Name:</label>
+    <input type="text" name="recipename" id="recipename" />
+    <br />
+
+    <label for="instructions">Instructions:</label>
+    <textarea name="instructions" id="instructions"></textarea>
+    <br />
+
+    <!-- <label for="owner">Owner:</label>
+    <input type="text" name="owner" id="owner" />
+    <br /> -->
+
+    <label for="ingredients">Ingredients:</label>
+    <select name="ingredients[]" id="ingredients">
+      <% ingredient.forEach((ing) =>{ %>
+      <option value="<%= ing._id %>"><%= ing.name %></option>
+      <% })%>
+    </select>
+    <br />
+
+    <button type="submit">Add Listing</button>
+  </form>
+</body>
