@@ -10,18 +10,15 @@
     <label for="instructions">Instructions:</label>
     <textarea name="instructions" id="instructions"></textarea>
     <br />
-
-    <!-- <label for="owner">Owner:</label>
-    <input type="text" name="owner" id="owner" />
-    <br /> -->
-
     <label for="ingredients">Ingredients:</label>
     <select name="ingredients[]" id="ingredients">
       <% ingredient.forEach((ing) =>{ %>
       <option value="<%= ing._id %>"><%= ing.name %></option>
       <% })%>
     </select>
+
     <br />
+    <input type="hidden" name="userId" value="<%user._id %>" />
 
     <button type="submit">Add Listing</button>
   </form>
