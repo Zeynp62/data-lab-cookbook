@@ -1,0 +1,13 @@
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Edit the Recipe!</h1>
+  <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+    <label for="name">name:</label>
+    <input type="text" value="<%= recipe.name %>" />
+    <label for="instructions">instructions:</label>
+    <input type="text" value="<%= recipe.instructions %>" />
+    <label for="ingredients">Ingredients seperated by commas:</label>
+    <input type="text" value="<%= recipe.ingredients %>" />
+    <button type="submit">Edit the recipe!</button>
+  </form>
+</body>

@@ -1,12 +1,13 @@
 const dotenv = require('dotenv')
 dotenv.config()
+const morgan = require('morgan')
 const express = require('express')
 const app = express()
 const session = require('express-session')
 const passUsertoView = require('./middleware/pass-user-to-view')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const morgan = require('morgan')
+const isSignedIn = require('./middleware/is-signed-in.js')
 
 // port config
 const PORT = process.env.PORT ? process.env.PORT : '3000'
@@ -30,7 +31,6 @@ app.use(
 app.use(passUsertoView)
 //Require Controllers
 const authCtrl = require('./controllers/auth')
-const isSignedIn = require('./middleware/is-signed-in')
 const recipesController = require('./controllers/recipes.js')
 const ingredientsController = require('./controllers/ingredients.js')
 //use controller

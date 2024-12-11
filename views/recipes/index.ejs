@@ -3,11 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Recipes</title>
+    <title>Document</title>
   </head>
   <body>
-    <a href="recipes/new">Add a new recipe</a>
-
+    <%- include('../partials/_navbar.ejs') %>
     <h1>Welcome to My Recipes</h1>
+    <a href="/recipes/new">Add a new Recipe</a>
+
+    <ul>
+      <% recipes.forEach((recipe) => { %>
+      <li>
+        <%= recipe.name %> recipe: <%= recipe.instructions %>, owned by <%=
+        recipe.owner.username %>
+        <a href="/recipes/<%= recipe._id %>">View more details</a>
+      </li>
+      <% }) %>
+    </ul>
   </body>
 </html>
